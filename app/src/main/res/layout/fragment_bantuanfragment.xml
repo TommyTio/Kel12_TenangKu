@@ -1,66 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BantuanFragment">
 
-    <LinearLayout
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:max="100"
+        android:progressTint="#3E6B4D" />
+
+    <LinearLayout
+        android:id="@+id/layoutError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F7F7F2"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="32dp"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pjakartabold"
-            android:text="Pusat Bantuan &amp; Krisis"
+            android:text="Halaman tidak bisa dimuat"
             android:textColor="#1E2B22"
-            android:textSize="22dp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/pjakartaregular"
-            android:text="Kamu tidak sendirian. Ambil jeda, tarik napas perlahan, dan temukan dukungan nyata."
+            android:gravity="center"
+            android:text="Periksa koneksi internetmu, lalu coba lagi."
             android:textColor="#5C6B61"
             android:textSize="14sp" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnCobaLagi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="#FBE9DD"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hotline Kemenkes Sejiwa 119 (Ext 8)"
-                    android:textColor="#1E2B22"
-                    android:fontFamily="@font/pjakartabold"
-                    android:textSize="16dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Layanan konseling psikologis. Gratis dan bebas pulsa."
-                    android:textColor="#5C6B61"
-                    android:fontFamily="@font/pjakartaregular"
-                    android:textSize="14dp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+            android:backgroundTint="#3E6B4D"
+            android:text="Coba Lagi"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </FrameLayout>

@@ -20,9 +20,10 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 
@@ -35,18 +36,37 @@ class MainActivity : AppCompatActivity() {
         val username = sharedPref.getString("username", "Pengguna")
         binding.tvSapaan.text = "Halo, $username"
 
-        replaceFragment(BerandaFragment(), addToBackStack = false)
+        binding.bottomNavView.isItemActiveIndicatorEnabled = false
 
-        binding.btnBeranda.setOnClickListener { replaceFragment(BerandaFragment()) }
-        binding.btnRiwayat.setOnClickListener { replaceFragment(RiwayatFragment()) }
-        binding.btnBantuan.setOnClickListener { replaceFragment(BantuanFragment()) }
+        if (savedInstanceState == null) {
+            replaceFragment(BerandaFragment())
+        }
+
+        binding.bottomNavView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.beranda -> {
+                    replaceFragment(BerandaFragment())
+                    true
+                }
+                R.id.riwayat -> {
+                    replaceFragment(RiwayatFragment())
+                    true
+                }
+                R.id.bantuan -> {
+                    replaceFragment(BantuanFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+
+        binding.bottomNavView.setOnItemReselectedListener { }
     }
 
-    private fun replaceFragment(fragment: Fragment, addToBackStack: Boolean = true) {
-        val transaction = supportFragmentManager.beginTransaction()
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, fragment)
-        if (addToBackStack) transaction.addToBackStack(null)
-        transaction.commit()
+            .commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -56,6 +76,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.menu_opsi -> {
+                startActivity(Intent(this, OpsiActivity::class.java))
+                true
+            }
             R.id.menu_logout -> {
                 val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
@@ -63,9 +87,7 @@ class MainActivity : AppCompatActivity() {
                     .setTitle("Logout")
                     .setMessage("Apakah Anda yakin ingin keluar?")
                     .setPositiveButton("Ya") { dialog, _ ->
-                        val editor = sharedPref.edit()
-                        editor.clear()
-                        editor.apply()
+                        sharedPref.edit().clear().apply()
                         dialog.dismiss()
 
                         val intent = Intent(this, LoginActivity::class.java)
