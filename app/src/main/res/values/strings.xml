@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tommy_3TIB</string>
+    <string name="judulProject">Kelompok 12: Kesehatan Mental dan Kesejahteraan</string>
+    <string name="deskripsiProject">Project yang akan kami buat dengan tema ini adalah halaman yang menampilkan informasi lengkap dari satu catatan suasana hati yang pernah dibuat pengguna. Halaman ini diakses ketika pengguna memilih salah satu catatan pada daftar riwayat. Tujuannya adalah membantu pengguna melihat kembali perasaan dan pengalaman yang pernah dicatat, sehingga mereka lebih memahami pola emosi dan kondisi kesehatan mentalnya.</string>
+    <string name="tujuanManfaat">Aplikasi ini Membantu pengguna dalam melakukan refleksi kemudian juga memudahkan pengguna untuk melihat bagaimana suasana hatinya</string>
+    <string name="informasi">Aplikasi ini akan berisi Informasi mengenai mood akan dibuat dengan emoji, tanggal, kemudian catatan juga saran singkat yang bisa ditambahkan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
