@@ -5,4 +5,9 @@
     <color name="blue">#004D79</color>
     <color name="purple">#481337</color>
     <color name="blue2">#07B7FD</color>
+    <color name="tenang_green">#3E6B4D</color>
+    <color name="tenang_gray">#8A9A8F</color>
+    <color name="tutorial_mint">#CFE5D6</color>
+    <color name="tutorial_sand">#F2E8CF</color>
+    <color name="tutorial_sky">#D6E6EE</color>
 </resources>
