@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Isi fragment dibungkus ScrollView supaya bisa digulir kalau lebih panjang dari layar -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,172 +10,255 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvNama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bagaimana kabarmu hari ini?"
-            android:fontFamily="@font/pjakartaextrabold"
-            android:textColor="#1E2B22"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="@font/pjakartaregular"
-            android:text="Ambil jeda sejenak untuk mendengarkan isi hatimu."
-            android:textColor="#5C6B61"
-            android:textSize="14sp" />
-
-        <com.google.android.material.card.MaterialCardView
+        <!-- Header melengkung + sapaan -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:strokeWidth="0dp">
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/background_header"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/bg_header_wave" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:paddingStart="20dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="20dp">
 
                 <TextView
+                    android:id="@+id/tvNama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pengingat Teduh"
-                    android:fontFamily="@font/pjakartabold"
-                    android:textColor="#3E6B4D"
-                    android:textSize="13sp"
+                    android:fontFamily="@font/pjakartaextrabold"
+                    android:text="Bagaimana kabarmu hari ini?"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/pjakartaregular"
-                    android:text="“Kamu tidak harus menyelesaikan segalanya hari ini. Cukup melangkah satu per satu.”"
-                    android:textColor="#1E2B22"
-                    android:textSize="15sp"
-                    android:textStyle="italic" />
+                    android:text="Ambil jeda sejenak untuk mendengarkan isi hatimu."
+                    android:textColor="#E6F0E8"
+                    android:textSize="14sp" />
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
 
-
-<!--        <com.google.android.material.card.MaterialCardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="12dp"-->
-<!--            app:cardBackgroundColor="#FFFFFF"-->
-<!--            app:cardCornerRadius="20dp"-->
-<!--            app:cardElevation="0dp"-->
-<!--            app:strokeWidth="0dp">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                tools:context=".RiwayatFragment">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:padding="16dp">-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Pengingat Teduh"-->
-<!--                        android:fontFamily="@font/pjakartabold"-->
-<!--                        android:textColor="#3E6B4D"-->
-<!--                        android:textSize="13sp"-->
-<!--                        android:textStyle="bold" />-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginTop="6dp"-->
-<!--                        android:fontFamily="@font/pjakartaregular"-->
-<!--                        android:text="Ketuk salah satu catatan untuk melihat detailnya."-->
-<!--                        android:textColor="#5C6B61"-->
-<!--                        android:textSize="14sp" />-->
-<!--                </LinearLayout>-->
-
-<!--                <FrameLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1">-->
-
-<!--                    <ListView-->
-<!--                        android:id="@+id/listRiwayat"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:clipToPadding="false"-->
-<!--                        android:divider="@null"-->
-<!--                        android:dividerHeight="0dp"-->
-<!--                        android:listSelector="@android:color/transparent"-->
-<!--                        android:paddingBottom="30dp"-->
-<!--                        android:scrollbars="none" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/tvKosong"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:fontFamily="@font/pjakartaregular"-->
-<!--                        android:gravity="center"-->
-<!--                        android:padding="32dp"-->
-<!--                        android:text="Belum ada catatan mood. Catatanmu nanti akan muncul di sini."-->
-<!--                        android:textColor="#5C6B61"-->
-<!--                        android:textSize="14sp" />-->
-<!--                </FrameLayout>-->
-<!--            </LinearLayout>-->
-
-<!--        </com.google.android.material.card.MaterialCardView>-->
-
-        <com.google.android.material.card.MaterialCardView
+        <!-- Isi konten -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:strokeWidth="0dp">
-            <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Pengingat Teduh -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pjakartabold"
+                        android:text="Pengingat Teduh"
+                        android:textColor="#3E6B4D"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/pjakartaregular"
+                        android:text="“Kamu tidak harus menyelesaikan segalanya hari ini. Cukup melangkah satu per satu.”"
+                        android:textColor="#1E2B22"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Pilih mood (GridLayout 3 kolom) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pjakartabold"
+                        android:text="Pilih moodmu hari ini"
+                        android:textColor="#1E2B22"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/pjakartaregular"
+                        android:text="Ketuk salah satu yang paling menggambarkan perasaanmu."
+                        android:textColor="#5C6B61"
+                        android:textSize="13sp" />
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/gridMood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:columnCount="3"
+                        app:useDefaultMargins="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMoodSenang"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:text="😊 Senang"
+                            android:textColor="#1E2B22"
+                            android:textSize="13sp"
+                            app:backgroundTint="#E6F0E8"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Butuh teman bicara darurat?"
-                                android:fontFamily="@font/pjakartabold"
-                                android:textColor="#1E2B22"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="@font/pjakartaregular"
-                                android:text="Hubungi Hotline Sejiwa 119 • Bebas pulsa"
-                                android:textColor="#5C6B61"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMoodTenang"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:text="😌 Tenang"
+                            android:textColor="#1E2B22"
+                            android:textSize="13sp"
+                            app:backgroundTint="#E6F0E8"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal" />
 
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMoodBiasa"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:text="😐 Biasa"
+                            android:textColor="#1E2B22"
+                            android:textSize="13sp"
+                            app:backgroundTint="#E6F0E8"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMoodCemas"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:text="😰 Cemas"
+                            android:textColor="#1E2B22"
+                            android:textSize="13sp"
+                            app:backgroundTint="#E6F0E8"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMoodSedih"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:text="😔 Sedih"
+                            android:textColor="#1E2B22"
+                            android:textSize="13sp"
+                            app:backgroundTint="#E6F0E8"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMoodLelah"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:text="😴 Lelah"
+                            android:textColor="#1E2B22"
+                            android:textSize="13sp"
+                            app:backgroundTint="#E6F0E8"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal" />
+                    </androidx.gridlayout.widget.GridLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Hotline -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pjakartabold"
+                        android:text="Butuh teman bicara darurat?"
+                        android:textColor="#1E2B22"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/pjakartaregular"
+                        android:text="Hubungi Hotline Sejiwa 119 • Bebas pulsa"
+                        android:textColor="#5C6B61"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

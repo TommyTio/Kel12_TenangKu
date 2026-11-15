@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,6 +34,74 @@
             android:textColor="#5C6B61"
             android:textSize="14sp" />
     </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSemua"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Semua"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBaik"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Baik"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNetral"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Netral"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCemas"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cemas"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
 
     <FrameLayout
         android:layout_width="match_parent"
