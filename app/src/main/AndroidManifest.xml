@@ -39,6 +39,12 @@
         <activity
             android:name=".tutorial.TutorialActivity"
             android:exported="false" />
+        <activity
+            android:name=".jelajah.JelajahActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MoodFormActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

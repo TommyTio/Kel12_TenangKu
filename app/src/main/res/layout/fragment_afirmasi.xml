@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_sand">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pjakartabold"
+            android:text="Afirmasi Hari Ini"
+            android:textColor="#3E6B4D"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/pjakartabolditalic"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:text="“Aku sudah berusaha sebaik yang aku bisa, dan itu sudah cukup.”"
+            android:textColor="#1E2B22"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/pjakartaregular"
+            android:text="Baca pelan-pelan, lalu tarik napas dalam."
+            android:textColor="#5C6B61"
+            android:textSize="13sp" />
+    </LinearLayout>
+</FrameLayout>

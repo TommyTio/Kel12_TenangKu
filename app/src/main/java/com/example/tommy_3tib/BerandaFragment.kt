@@ -13,6 +13,7 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.example.tommy_3tib.databinding.FragmentBerandafragmentBinding
+import com.example.tommy_3tib.jelajah.JelajahActivity
 import com.example.tommy_3tib.tutorial.TutorialActivity
 
 class BerandaFragment : Fragment() {
@@ -35,7 +36,10 @@ class BerandaFragment : Fragment() {
         val username = sharedPref.getString("username", "Pengguna")
         binding.tvNama.text = "Bagaimana kabarmu hari ini, $username?"
 
-        // Ikon Info di Toolbar -> buka Tutorial Screen
+        binding.cardJelajah.setOnClickListener {
+            startActivity(Intent(requireContext(), JelajahActivity::class.java))
+        }
+
         requireActivity().addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.beranda_toolbar_menu, menu)

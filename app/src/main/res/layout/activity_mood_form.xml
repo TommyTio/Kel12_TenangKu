@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F2"
+    tools:context=".MoodFormActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationContentDescription="Kembali"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Catatan Baru"
+        app:titleTextColor="#1E2B22" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pjakartabold"
+                android:text="Bagaimana perasaanmu?"
+                android:textColor="#1E2B22"
+                android:textSize="16sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupMood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:selectionRequired="false"
+                app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSenang"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😊 Senang"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTenang"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😌 Tenang"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBiasa"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😐 Biasa"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCemas"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😰 Cemas"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSedih"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😔 Sedih"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipLelah"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😴 Lelah"
+                android:textColor="@color/chip_text_color"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="@color/chip_bg_color"
+                app:chipStrokeColor="#D5DDD7"
+                app:chipStrokeWidth="1dp" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E3E8E2"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="?attr/textInputOutlinedStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Judul catatan">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapSentences"
+                            android:textColor="@color/purple"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="?attr/textInputOutlinedStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Ceritakan harimu">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/purple"
+                            android:gravity="top"
+                            android:inputType="textCapSentences|textMultiLine"
+                            android:minLines="4" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="?attr/textInputOutlinedStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Tag (pisahkan dengan koma)">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTags"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/purple"
+                            android:inputType="text"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Simpan"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#3E6B4D" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,22 +4,26 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import com.example.tommy_3tib.data.AppDatabase
+import com.example.tommy_3tib.data.MoodFormat
+import com.example.tommy_3tib.data.entity.MoodEntity
 import com.example.tommy_3tib.databinding.ActivityDetailBinding
-import com.example.tommy_3tib.databinding.DialogEditCatatanBinding
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 class DetailActivity : AppCompatActivity() {
 
     companion object {
-        const val EXTRA_POSITION = "extra_position"
+        const val EXTRA_ID = "extra_id"
     }
 
     private lateinit var binding: ActivityDetailBinding
-    private var position = -1
+    private lateinit var db: AppDatabase
+    private var mood: MoodEntity? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,47 +38,57 @@ class DetailActivity : AppCompatActivity() {
             insets
         }
 
-        position = intent.getIntExtra(EXTRA_POSITION, -1)
-        if (position !in MoodData.entries.indices) {
+        val id = intent.getIntExtra(EXTRA_ID, -1)
+        if (id == -1) {
             finish()
             return
         }
 
+        db = AppDatabase.getInstance(this)
         binding.toolbar.setNavigationOnClickListener { finish() }
 
-        tampilkanData()
+        lifecycleScope.launch {
+            val data = db.moodDao().getById(id)
+            if (data == null) {
+                finish()
+                return@launch
+            }
+            mood = data
+            tampilkanData(data)
+        }
 
-        binding.btnEdit.setOnClickListener { tampilkanDialogEdit() }
+        binding.btnEdit.setOnClickListener {
+            Toast.makeText(this, "Kamu Menekan Edit", Toast.LENGTH_SHORT).show()
+        }
         binding.btnHapus.setOnClickListener { konfirmasiHapus() }
     }
 
-    private fun tampilkanData() {
-        val entry = MoodData.entries[position]
+    private fun tampilkanData(data: MoodEntity) {
+        val tags = MoodFormat.tagList(data.tags)
 
-        binding.tvEmoji.text = entry.emoji
-        binding.tvMood.text = entry.moodTitle
-        binding.tvDate.text = entry.dateTime
-        binding.tvLabel.text = entry.moodLabel
-        binding.tvNote.text = entry.note
-        binding.tvSaran.text = entry.suggestion
-
-        binding.tvTags.text = entry.tags.joinToString("  ") { "#$it" }
-        binding.tvTags.visibility = if (entry.tags.isEmpty()) View.GONE else View.VISIBLE
-    }
-
-    private fun tampilkanDialogEdit() {
-        Toast.makeText(this, "Kamu Menekan Edit", Toast.LENGTH_SHORT).show()
+        binding.tvEmoji.text = data.emoji
+        binding.tvMood.text = data.moodTitle
+        binding.tvDate.text = MoodFormat.formatDate(data.createdAt)
+        binding.tvLabel.text = data.moodLabel
+        binding.tvNote.text = data.note
+        binding.tvSaran.text = data.suggestion
+        binding.tvTags.text = tags.joinToString("  ") { "#$it" }
+        binding.tvTags.visibility = if (tags.isEmpty()) View.GONE else View.VISIBLE
     }
 
     private fun konfirmasiHapus() {
-        Snackbar.make(binding.main, "Hapus catatan ini?", Snackbar.LENGTH_LONG)
-            .setAction("Cancel") {
-                Snackbar.make(
-                    binding.main,
-                    "",
-                    Snackbar.LENGTH_SHORT
-                ).show()
+        val data = mood ?: return
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Hapus Catatan")
+            .setMessage("Yakin ingin menghapus catatan ini?")
+            .setPositiveButton("Ya") { _, _ ->
+                lifecycleScope.launch {
+                    db.moodDao().delete(data)
+                    finish()
+                }
             }
+            .setNegativeButton("Batal", null)
             .show()
     }
 }

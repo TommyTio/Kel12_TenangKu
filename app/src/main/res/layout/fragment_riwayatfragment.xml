@@ -108,15 +108,12 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <ListView
-            android:id="@+id/listRiwayat"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRiwayat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:listSelector="@android:color/transparent"
-            android:paddingBottom="12dp"
+            android:paddingBottom="88dp"
             android:scrollbars="none" />
 
         <TextView
@@ -127,8 +124,20 @@
             android:fontFamily="@font/pjakartaregular"
             android:gravity="center"
             android:padding="32dp"
-            android:text="Belum ada catatan mood. Catatanmu nanti akan muncul di sini."
+            android:text="Belum ada catatan mood. Tekan tombol + untuk menambah catatan pertamamu."
             android:textColor="#5C6B61"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabTambah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="Tambah catatan"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="#3E6B4D"
+            app:tint="#FFFFFF" />
     </FrameLayout>
 </LinearLayout>

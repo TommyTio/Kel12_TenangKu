@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_mint"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pjakartaextrabold"
+            android:text="Tips Hari Ini"
+            android:textColor="#1E2B22"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/pjakartaregular"
+            android:text="Langkah kecil yang bisa kamu coba sekarang."
+            android:textColor="#3E6B4D"
+            android:textSize="14sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pjakartaregular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="1. Tarik napas 4 hitungan, tahan 4 hitungan, lalu hembuskan 4 hitungan."
+                    android:textColor="#1E2B22"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/pjakartaregular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="2. Minum air putih dan berdiri sejenak untuk bergerak tiap satu jam."
+                    android:textColor="#1E2B22"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/pjakartaregular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="3. Kurangi layar dan media sosial sebelum tidur supaya istirahat lebih nyenyak."
+                    android:textColor="#1E2B22"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/pjakartaregular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="4. Ceritakan perasaanmu kepada orang yang kamu percaya."
+                    android:textColor="#1E2B22"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>
